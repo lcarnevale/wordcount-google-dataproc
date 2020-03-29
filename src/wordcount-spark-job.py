@@ -26,7 +26,8 @@ from pyspark import SparkContext, SparkConf
 def define_spark_context():
     """Define Spark context with necessary configuration
     """
-    return SparkContext("local", "PySpark Wordcount Job")
+    conf = SparkConf().setAppName("PySpark Wordcount Job").setMaster("local")
+    return SparkContext(conf=conf)
 
 def create_words_list_from_file(spark_context, input_file_endpoint):
     """Read data from text file and split each line into words
