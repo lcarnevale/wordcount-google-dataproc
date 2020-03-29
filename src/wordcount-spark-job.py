@@ -15,12 +15,13 @@ __credits__ = ''
 __description__ = 'Mapreduce implementation of PySpark wordcount'
 
 
-DESCENDING = 0
-
 # standard libraries
 from datetime import datetime
 # third parties libraries
 from pyspark import SparkContext, SparkConf
+
+
+DESCENDING = 0
 
 
 def define_spark_context():
@@ -59,6 +60,7 @@ def reducer(a, b):
 def main():
     timestamp = datetime.now()
 
+    #TODO - make storage_base_url customizable
     storage_base_url = 'gs://lorenzo-dataproc-template'
     input_file_url = '/oliver-twist-dickens.txt'
     input_file_endpoint = '%s%s' % (storage_base_url, input_file_url)
